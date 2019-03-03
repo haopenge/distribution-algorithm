@@ -20,7 +20,7 @@ public class Test01 {
 
     static CountDownLatch countDownLatch = new CountDownLatch(4);
 
-    private static List<Integer> resultList = Collections.synchronizedList(new ArrayList<Integer>());
+    private static List<Integer> resultList = Collections.synchronizedList(new ArrayList<>());
 
     /**
      * 判断value是否是素数
@@ -43,8 +43,6 @@ public class Test01 {
      * 统计指定范围的内素数线程
      */
     static class CountThread extends Thread {
-
-        private CountThreadListener countThreadListener;
 
         /**
          * 开始位置
@@ -70,54 +68,23 @@ public class Test01 {
                     resultList.add(i);
                 }
             }
-            // 更新状态
-            if (countThreadListener != null) {
-                countThreadListener.updateStatus(true, resultList.size());
-            }
             countDownLatch.countDown();
         }
 
-        /**
-         * 设置监听接口，监听是否运行完成
-         */
-        public void setCountThreadListener(CountThreadListener countThreadListener) {
-            this.countThreadListener = countThreadListener;
-        }
+
     }
 
-    interface CountThreadListener {
-        void updateStatus(boolean isOver, int size);
-    }
 
     public static void main(String[] args) {
         int block = 1000000 / 4;
-        final int[] isOverCount = {0};
 
         for (int i = 1; i <= 4; i++) {
             CountThread thread = new CountThread("线程" + i, block * (i - 1) + 1, block * i);
-
-            /*final int finalI = i;
-            thread.setCountThreadListener(new CountThreadListener() {
-                public void updateStatus(boolean isOver, int size) {
-                    if (isOver) {
-                        isOverCount[0]++;
-
-                        System.out.println("线程" + finalI + "执行完成" + "  -->数量：" + size);
-                        synchronized (Test01.class) {
-                            if (isOverCount[0] == 4) {
-                                System.out.println("1-1000000 素数数量是：" + resultList.size());
-                               // System.out.println(resultList);
-                            }
-                        }
-                    }
-                }
-            });*/
             thread.start();
         }
         try {
             countDownLatch.await();
             System.out.println("【数量】：" + resultList.size());
-          //  System.out.println("【打印】：" + resultList.toString());
 
         } catch (InterruptedException e) {
             e.printStackTrace();
