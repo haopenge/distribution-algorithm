@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * <pre>
- *
+ *   【某公司面试题】
  * 描述：用多线程统计1到100 0000之间有几个素数，并输出这些素数
  *      1. countDownLatch 线程执行完后，减一，countDownLatch.await()阻塞式的
  *      2. 监听方法，需要写监听接口
