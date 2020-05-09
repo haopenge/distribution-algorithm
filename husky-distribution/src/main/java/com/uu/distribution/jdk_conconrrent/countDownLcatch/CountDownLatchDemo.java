@@ -1,4 +1,4 @@
-package com.uu.distribution.JDK并发包.倒计时器;
+package com.uu.distribution.jdk_conconrrent.countDownLcatch;
 
 import java.util.ArrayList;
 import java.util.Collections;

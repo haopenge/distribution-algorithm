@@ -1,4 +1,4 @@
-package com.uu.distribution.JDK并发包.循环栅栏;
+package com.uu.distribution.jdk_conconrrent.cyclicBarrier;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;

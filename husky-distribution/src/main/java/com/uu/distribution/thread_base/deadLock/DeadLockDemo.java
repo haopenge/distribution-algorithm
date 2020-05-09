@@ -1,4 +1,4 @@
-package com.uu.distribution.线程基础.死锁;
+package com.uu.distribution.thread_base.deadLock;
 
 /**
  * 描述：

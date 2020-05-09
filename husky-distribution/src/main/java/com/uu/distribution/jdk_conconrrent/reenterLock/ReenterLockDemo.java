@@ -1,4 +1,4 @@
-package com.uu.distribution.JDK并发包.重入锁;
+package com.uu.distribution.jdk_conconrrent.reenterLock;
 
 import java.util.concurrent.locks.ReentrantLock;
 

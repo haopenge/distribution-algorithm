@@ -1,4 +1,4 @@
-package com.uu.distribution.线程基础.threadLocal;
+package com.uu.distribution.thread_base.threadLocal;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

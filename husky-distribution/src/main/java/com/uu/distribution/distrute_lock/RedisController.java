@@ -1,4 +1,4 @@
-package com.uu.distribution.分布式锁;
+package com.uu.distribution.distrute_lock;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

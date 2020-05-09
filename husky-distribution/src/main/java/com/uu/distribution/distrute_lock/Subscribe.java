@@ -1,4 +1,4 @@
-package com.uu.distribution.分布式锁;
+package com.uu.distribution.distrute_lock;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

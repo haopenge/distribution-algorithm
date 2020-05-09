@@ -1,4 +1,4 @@
-package com.uu.distribution.分布式锁;
+package com.uu.distribution.distrute_lock;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
