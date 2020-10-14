@@ -6,21 +6,22 @@ package com.husky.singleton;
  * @date 2020/10/14 17:17
  */
 public class ThreadLocalSingletonTest {
-    private static final ThreadLocal<ThreadLocalSingletonTest> threadLocalInstance = new ThreadLocal<ThreadLocalSingletonTest>(){
-        @Override
-        protected ThreadLocalSingletonTest initialValue() {
-            return super.initialValue();
-        }
-    };
 
+    public static void main(String[] args) {
+         System.out.println(ThreadLocalSingleton.getInstance());
+         System.out.println(ThreadLocalSingleton.getInstance());
+         System.out.println(ThreadLocalSingleton.getInstance());
+         System.out.println(ThreadLocalSingleton.getInstance());
 
-    private ThreadLocalSingletonTest(){
+         //new Thread(new ExectorThread());
 
-    }
-
-
-    public static ThreadLocalSingletonTest getInstance(){
-        return threadLocalInstance.get();
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                System.out.println(ThreadLocalSingleton.getInstance());
+            }
+        };
+        thread.start();
     }
 
 }

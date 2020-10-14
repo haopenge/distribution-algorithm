@@ -9,7 +9,7 @@ public class ThreadLocalSingleton {
     private static final ThreadLocal<ThreadLocalSingleton> threadLocalInstance = new ThreadLocal<ThreadLocalSingleton>(){
         @Override
         protected ThreadLocalSingleton initialValue() {
-            return super.initialValue();
+            return new ThreadLocalSingleton();
         }
     };
 
