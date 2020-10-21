@@ -1,4 +1,4 @@
-package com.uu.distribution.design_mode.strategy;
+package com.husky.strategy;
 
 import java.util.ArrayList;
 import java.util.List;
