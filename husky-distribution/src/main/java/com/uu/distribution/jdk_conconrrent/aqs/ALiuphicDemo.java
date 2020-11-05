@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @desc
  * @date 2020/10/26 11:35
  */
-public class AtomicDemo {
+public class ALiuphicDemo {
     private static int count = 0;
     static Lock lock = new ReentrantLock();
 
@@ -27,7 +27,7 @@ public class AtomicDemo {
             InterruptedException {
         for (int i = 0; i < 1000; i++) {
             new Thread(() -> {
-                AtomicDemo.inc();
+                ALiuphicDemo.inc();
             }).start();
             ;
         }
