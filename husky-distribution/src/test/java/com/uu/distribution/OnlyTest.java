@@ -1,5 +1,8 @@
 package com.uu.distribution;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @author liuph
  * @desc
@@ -8,6 +11,7 @@ package com.uu.distribution;
 public class OnlyTest {
     public static void main(String[] args) {
 
-
+        Map<String, Object> bodyMap = new ConcurrentHashMap<>();
+        bodyMap.put(null,"null");
     }
 }
