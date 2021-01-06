@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>  
+        <!-- 开启缓存 -->
+        <!-- <setting name="cacheEnabled" value="true"/> -->
+        <!-- 是否启用 数据中 a_column 自动映射 到 java类中驼峰命名的属性。[默认:true] -->  
+        <setting name="mapUnderscoreToCamelCase" value="true" />  
+        <!-- 开启全局性设置懒加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 开启按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 返回resultType=”map”时，如果数据为空的字段，该字段则返回null-->
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+        <!-- 别名 -->
+    <typeAliases>
+         <package name="com.chuangkit.account.center.assist.impl.core.domain.dox"/>
+         <package name="com.chuangkit.account.center.assist.impl.core.domain.dto"/>
+    </typeAliases>
+    
+</configuration>
