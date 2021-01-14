@@ -16,7 +16,9 @@ public class BufferDemo {
 
     public static void main(String args[]) throws Exception {
         //这用用的是文件IO处理
-        FileInputStream fin = new FileInputStream("E:/test.txt");
+        String path = BufferDemo.class.getResource("/application.properties").getPath();
+        FileInputStream fin = new FileInputStream(path);
+
         //创建文件的操作管道
         FileChannel fc = fin.getChannel();
 
