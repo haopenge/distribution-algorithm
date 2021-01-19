@@ -15,4 +15,10 @@ public class OnlyTest {
         share.shareOptions("Sina");
         share.shareOptions("WeChat");
     }
+    
+    
+    @Test
+    public void test32423(){
+         System.out.println(1 != 2);
+    }
 }
