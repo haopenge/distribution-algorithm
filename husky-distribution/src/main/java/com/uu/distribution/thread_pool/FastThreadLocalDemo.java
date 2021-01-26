@@ -29,6 +29,15 @@ class FastThreadLocalDemo {
 
             new FastThreadLocalThread(() -> {
 
+           //     THREAD_NAME_LOCAL.set(threadName);
+
+                ThreadPoolDemo.TradeOrder tradeOrder = new ThreadPoolDemo.TradeOrder(tradeId, tradeId % 2 == 0 ? "已支付" : "未支付");
+
+                TRADE_THREAD_LOCAL.set(tradeOrder);
+
+                System.out.println("threadName: " + THREAD_NAME_LOCAL.get());
+
+                System.out.println("tradeOrder info：" + TRADE_THREAD_LOCAL.get());
 
             }, threadName).start();
 
