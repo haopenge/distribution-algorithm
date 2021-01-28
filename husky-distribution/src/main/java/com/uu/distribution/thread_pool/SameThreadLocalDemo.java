@@ -5,26 +5,30 @@ package com.uu.distribution.thread_pool;
  * @author liuph
  * @date 2020/12/02 14:20
  */
-public class ThreadPoolDemo {
+public class SameThreadLocalDemo {
 
     private static final ThreadLocal<String> THREAD_NAME_LOCAL = new ThreadLocal<>();
-    private static final ThreadLocal<TradeOrder> TRADE_THREAD_LOCAL = new ThreadLocal<>();
+
+    private static final ThreadLocal<String> THREAD_NAME_LOCAL_V2 = new ThreadLocal<>();
 
     public static void main(String[] args) {
+
         for (int i = 0; i < 2; i++) {
+
             int tradeId = i;
             new Thread(() -> {
 
-                THREAD_NAME_LOCAL.set("name" + tradeId);
+                THREAD_NAME_LOCAL.set("name    " + tradeId);
 
-                TradeOrder tradeOrder = new TradeOrder(tradeId, tradeId % 2 == 0 ? "已支付" : "未支付");
-                TRADE_THREAD_LOCAL.set(tradeOrder);
+                THREAD_NAME_LOCAL_V2.set("nameV2  " + tradeId );
 
-                System.out.println("threadName: " + THREAD_NAME_LOCAL.get());
-                System.out.println("tradeOrder info：" + TRADE_THREAD_LOCAL.get());
+                System.out.println("threadName: ...." + THREAD_NAME_LOCAL.get());
+                System.out.println("threadName V2：..." + THREAD_NAME_LOCAL_V2.get());
 
             }, "thread-" + i).start();
+
         }
+
     }
 
     static class TradeOrder {

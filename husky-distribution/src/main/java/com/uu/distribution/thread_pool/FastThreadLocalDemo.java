@@ -21,7 +21,7 @@ class FastThreadLocalDemo {
 
     public static void main(String[] args) {
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
 
             int tradeId = i;
 
@@ -29,7 +29,7 @@ class FastThreadLocalDemo {
 
             new FastThreadLocalThread(() -> {
 
-           //     THREAD_NAME_LOCAL.set(threadName);
+                THREAD_NAME_LOCAL.set(threadName + "....");
 
                 ThreadPoolDemo.TradeOrder tradeOrder = new ThreadPoolDemo.TradeOrder(tradeId, tradeId % 2 == 0 ? "已支付" : "未支付");
 
