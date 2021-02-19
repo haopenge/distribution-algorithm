@@ -1,0 +1,5 @@
+sharding:
+  jdbc:
+    config:
+      props:
+        sql.show: true
