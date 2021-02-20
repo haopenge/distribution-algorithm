@@ -1,0 +1,10 @@
+spring:
+    shardingsphere:
+        datasource:
+            common:
+                driver-class-name: com.mysql.jdbc.Driver
+                password: 123456
+                type: com.zaxxer.hikari.HikariDataSource
+                username: root
+            ds_0:
+                jdbc-url: jdbc:mysql://127.0.0.1:3306/ds_0?serverTimezone=UTC&useSSL=false
