@@ -6,6 +6,7 @@ import org.apache.shardingsphere.infra.config.algorithm.ShardingSphereAlgorithmC
 import org.apache.shardingsphere.sharding.api.config.ShardingRuleConfiguration;
 import org.apache.shardingsphere.sharding.api.config.rule.ShardingTableRuleConfiguration;
 import org.apache.shardingsphere.sharding.api.config.strategy.sharding.StandardShardingStrategyConfiguration;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,7 +23,7 @@ import java.util.Properties;
  * @date 2021/02/20 17:22
  */
 @Configuration
-public class MyBatisConfig {
+public class MyBatisConfig implements BeanPostProcessor {
 
     @Bean
     public DataSource dataSource() throws SQLException {
