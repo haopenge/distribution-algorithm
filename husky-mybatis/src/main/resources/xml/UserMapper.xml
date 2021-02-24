@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uu.mybatis.official.UserDao">
+
+    <select id="selectByPrimaryKey" resultType="com.uu.mybatis.official.User">
+        select
+            id,phone,remark
+        from user
+    </select>
+    <select id="find" resultType="com.uu.mybatis.official.User">
+        select  id,phone,remark
+        from user
+    </select>
+</mapper>
