@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @desc
+ * @desc   自定义sql 增强拦截器
  * @author liuph
  * @date 2021/02/25 10:07
  */

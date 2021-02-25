@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uu.dao.UserDao">
+
+
+    <insert id="insert">
+        insert into user (id,phone,remark) values (#{id},#{phone},#{remark})
+    </insert>
+
+    <select id="selectByPrimaryKey" resultType="com.uu.bean.dox.User">
+        select
+            id,phone,remark
+        from user
+    </select>
+
+
+    <select id="find" resultType="com.uu.bean.dox.User">
+        select  id,phone,remark
+        from user
+    </select>
+    <select id="findById" resultType="com.uu.bean.dox.User">
+        select  id,phone,remark
+        from user
+        where id = #{id}
+    </select>
+</mapper>
