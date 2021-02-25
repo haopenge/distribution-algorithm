@@ -8,4 +8,6 @@ public interface UserDao {
 
 
     List<User> find();
+
+    User findById(Integer id);
 }

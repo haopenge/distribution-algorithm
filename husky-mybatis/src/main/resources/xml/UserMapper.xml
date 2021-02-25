@@ -12,4 +12,9 @@
         select  id,phone,remark
         from user
     </select>
+    <select id="findById" resultType="com.uu.mybatis.official.User">
+        select  id,phone,remark
+        from user
+        where id = #{id}
+    </select>
 </mapper>

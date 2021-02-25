@@ -1,7 +1,5 @@
 package com.uu.mybatis.official;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -21,11 +19,14 @@ public class OfficialBootStrap {
         SqlSession sqlSession = getSqlSession();
 
         UserDao userDao = sqlSession.getMapper(UserDao.class);
-        PageHelper.startPage(2,2);
+      /*  PageHelper.startPage(2,2);
         List<User> userList = userDao.find();
 
-        PageInfo<User> pageInfo = new PageInfo<User>(userList);
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);*/
 
+
+
+       List<User> userList = userDao.find();
     }
 
     /**
