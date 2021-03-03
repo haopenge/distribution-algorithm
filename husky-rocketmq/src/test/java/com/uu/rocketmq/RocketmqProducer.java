@@ -14,12 +14,13 @@ import org.apache.rocketmq.remoting.exception.RemotingException;
 public class RocketmqProducer {
     public static void main(String[] args) throws MQClientException, RemotingException, InterruptedException, MQBrokerException {
         DefaultMQProducer producer = new DefaultMQProducer("lph_test_p");
-        producer.setNamesrvAddr("192.168.1.109:9876");
+        producer.setNamesrvAddr("172.16.7.75:9876");
+        producer.setVipChannelEnabled(false);
 
         producer.start();
 
         for (int i = 0; i < 20; i++) {
-            Message message = new Message("lph_test_topic", "TagA", "I am content".getBytes());
+            Message message = new Message("test", "TagA", "I am content".getBytes());
             producer.send(message);
         }
 
