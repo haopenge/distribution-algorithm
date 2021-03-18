@@ -1,0 +1,4 @@
+adaptive=com.uu.husky.spi.dubbo.service.IAdaptiveComputerImpl
+mac=com.uu.husky.spi.dubbo.service.IMacComputerImpl
+windows=com.uu.husky.spi.dubbo.service.IWindowsComputerImpl
+linux=com.uu.husky.spi.dubbo.service.ILinuxComputerImpl

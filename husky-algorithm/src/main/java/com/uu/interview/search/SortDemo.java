@@ -33,6 +33,26 @@ public class SortDemo {
 
     }
 
+
+    // 假定第一个是对的
+    public void insertSort1(int [] sourceArray){
+        for (int i = 1; i < sourceArray.length; i++) {
+            int temp = sourceArray[i];
+
+            int j = i;
+
+            while ( j >= 0 && sourceArray[j - 1] < temp){
+                // 前移一位
+                sourceArray[j - 1] = sourceArray[j];
+                j--;
+            }
+
+            if(j != i){
+                sourceArray[j] = temp;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] sourceArray = new int[]{6, 5, 1, 2, 3};
         int[] sortArray = insertSort(sourceArray);

@@ -36,4 +36,26 @@ public class FindTargetDemo {
         }
         return -1;
     }
+
+
+    public static  int twoSearch2(int[] sourceArray,int value){
+        //
+        int start = 0;
+
+        int end = sourceArray.length;
+
+        while (start < end ){
+            int middle = sourceArray[(start + end)/2];
+            if(sourceArray[middle] > value){
+                start = middle;
+            }
+            else if(sourceArray[middle] < value){
+                end = middle;
+            }else{
+                return middle;
+            }
+        }
+
+        return  -1;
+    }
 }
