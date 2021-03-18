@@ -19,9 +19,17 @@ public class RocketmqProducer {
 
         producer.start();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             Message message = new Message("test", "TagA", "I am content".getBytes());
             producer.send(message);
+
+            /*/ /消息路由策略
+            producer.send(message, new MessageQueueSelector() {
+                @Override
+                public MessageQueue select(List<MessageQueue> list, Message message, Object o) {
+                    return list.get(0);
+                }
+            },"key-"+ i);*/
         }
 
     }
