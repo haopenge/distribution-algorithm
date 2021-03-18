@@ -1,6 +1,6 @@
-package com.uu.husky;
+package com.uu.husky.spi.jdk;
 
-import com.uu.husky.service.IAnimalService;
+import com.uu.husky.spi.jdk.service.IAnimalService;
 
 import java.util.ServiceLoader;
 

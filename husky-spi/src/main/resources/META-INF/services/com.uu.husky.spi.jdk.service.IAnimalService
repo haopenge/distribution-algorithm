@@ -1,0 +1,2 @@
+com.uu.husky.spi.jdk.service.impl.CatService
+com.uu.husky.spi.jdk.service.impl.DogService

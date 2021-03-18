@@ -1,6 +1,6 @@
-package com.uu.husky.service.impl;
+package com.uu.husky.spi.jdk.service.impl;
 
-import com.uu.husky.service.IAnimalService;
+import com.uu.husky.spi.jdk.service.IAnimalService;
 
 /**
  * 描述：

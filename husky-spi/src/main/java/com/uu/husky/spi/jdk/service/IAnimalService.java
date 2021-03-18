@@ -1,4 +1,4 @@
-package com.uu.husky.service;
+package com.uu.husky.spi.jdk.service;
 
 /**
  * 描述：
