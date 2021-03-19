@@ -63,6 +63,10 @@ public class DubboSpiTest {
         filters.forEach(System.out::println);
 
     }
-
+    
+    @Test
+    public void test222(){
+         System.out.println(Runtime.getRuntime().availableProcessors());
+    }
 
 }

@@ -1,10 +1,7 @@
 package com.uu.distribution;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -15,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootStart.class)
 public class ApplicationTest {
-
+/*
     @Autowired
     private StringRedisTemplate redisTemplate;
 
@@ -28,7 +25,7 @@ public class ApplicationTest {
     public void getData() {
         String token = redisTemplate.boundValueOps("name").get();
         System.out.println(token);
-    }
+    }*/
 
 }
 
