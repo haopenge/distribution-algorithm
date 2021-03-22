@@ -1,0 +1,18 @@
+
+
+dubbo:
+  scan:
+    base-packages: com.uu.service
+  protocol:
+    name: dubbo
+  registry:
+    address: zookeeper://172.16.1.66:2181
+    group: dubbo
+  metadata-report:
+    address: zookeeper://172.16.1.66:2181
+    group: dubbo
+  consumer:
+    check: false
+spring:
+  application:
+    name: dubbo-test
