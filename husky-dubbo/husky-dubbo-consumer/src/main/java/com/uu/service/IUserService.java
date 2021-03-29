@@ -7,4 +7,6 @@ package com.uu.service;
  */
 public interface IUserService {
     String login(String username,String password);
+
+    String getUserInfo(Integer userId);
 }

@@ -14,4 +14,9 @@ public class IUserServiceImpl implements IUserService {
     public String login(String username, String password) {
         return username + "_" + password;
     }
+
+    @Override
+    public String getUserInfo(Integer userId) {
+        return " userId :" + userId;
+    }
 }

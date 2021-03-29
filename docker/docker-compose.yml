@@ -1,0 +1,40 @@
+version: '3.1'
+services:
+  zookeeper:
+    image: zookeeper:3.5
+    restart: always
+    ports:
+      - 2181:2181
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10k"
+        max-file: "10"
+  web:
+    image: elkozmon/zoonavigator-web:0.5.0
+    container_name: zoonavigator-web
+    ports:
+      - 8000:8000
+    environment:
+      WEB_HTTP_PORT: 8000
+      API_HOST: "api"
+      API_PORT: 9000
+    depends_on:
+     - api
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10k"
+        max-file: "10"
+  api:
+    image: elkozmon/zoonavigator-api:0.5.0
+    container_name: zoonavigator-api
+    environment:
+      API_HTTP_PORT: 9000
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10k"
+        max-file: "10"
