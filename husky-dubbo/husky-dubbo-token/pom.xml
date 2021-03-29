@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uu</groupId>
-	<artifactId>husky-dubbo-consumer</artifactId>
+	<artifactId>husky-dubbo-token</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>husky-dubbo-consumer</name>
+	<name>husky-dubbo-token</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -32,30 +32,28 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--  集群限流-->
 		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-starter</artifactId>
-			<version>2.7.8</version>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-cluster-server-default</artifactId>
+			<version>1.8.1</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
-	<!--	<dependency>
-			<groupId>org.apache.curator</groupId>
-			<artifactId>curator-recipes</artifactId>
-			<version>5.1.0</version>
-		</dependency>-->
-
+		<!-- nacos 规则持久化-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-datasource-extension</artifactId>
+			<version>1.8.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba.csp</groupId>
-			<artifactId>sentinel-dubbo-adapter</artifactId>
-			<version>1.8.0</version>
+			<artifactId>sentinel-datasource-nacos</artifactId>
+			<version>1.8.1</version>
 		</dependency>
 
+		<!--  与控制台通信 -->
 		<dependency>
 			<groupId>com.alibaba.csp</groupId>
 			<artifactId>sentinel-transport-simple-http</artifactId>
@@ -63,9 +61,18 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.alibaba.nacos</groupId>
-			<artifactId>nacos-client</artifactId>
-			<version>1.3.3</version>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>spring-boot-starter-ahas-sentinel-client</artifactId>
+			<version>1.8.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
 	</dependencies>

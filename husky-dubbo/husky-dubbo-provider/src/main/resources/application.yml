@@ -6,10 +6,10 @@ dubbo:
   protocol:
     name: dubbo
   registry:
-    address: zookeeper://localhost:2181
+    address: nacos://localhost:8848
     group: dubbo
   metadata-report:
-    address: zookeeper://localhost:2181
+    address: nacos://localhost:8848
     group: dubbo
   consumer:
     check: false
