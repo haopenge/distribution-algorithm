@@ -19,10 +19,6 @@ public class HuskyDubboProviderApplication {
 
 
 	public static void main(String[] args) {
-		// Users don't need to manually call this method.
-
-	//	InitExecutor.doInit();
-
 		initFlowRule();
 		ConfigurableApplicationContext context = SpringApplication.run(HuskyDubboProviderApplication.class, args);
 
@@ -37,7 +33,4 @@ public class HuskyDubboProviderApplication {
 		flowRule.setLimitApp("dubbo-test-consumer-1");
 		FlowRuleManager.loadRules(Collections.singletonList(flowRule));
 	}
-
-
-
 }
