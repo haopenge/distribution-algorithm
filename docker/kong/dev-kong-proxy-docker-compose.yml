@@ -1,0 +1,69 @@
+version: '3.8'
+services:
+        kong-database:
+                image: docker-mirrors-nexus.ckt.cn/library/postgres:9.6.18
+                restart: always
+                container_name: kong-database
+                environment:
+                        POSTGRES_USER: 'kong'
+                        POSTGRES_DB: 'kong'
+                        POSTGRES_PASSWORD: 'kong'
+                ports:
+                        - "25432:5432"   
+        
+        kong-database-sync:
+                image: docker-mirrors-nexus.ckt.cn/library/postgres:9.6.18
+                container_name: kong-database-sync
+                restart: on-failure
+                entrypoint: ["bash","-c","cd ~ && if [ -r \"sync.log\" ]; then echo already sync !; exit 0; else export PGPASSWORD='kong'; pg_dump -h 172.23.12.127 -U kong -n public -d kong  -f ./sync.gz -Z 1; gunzip sync.gz; psql -U kong -h kong-database  -f ./sync; echo finished >./sync.log; fi"]
+                depends_on:
+                        - kong-database
+                links:
+                        - kong-database
+
+        kong-server:
+                image: docker-mirrors-nexus.ckt.cn/library/kong:2.0.3-centos
+                restart: always
+                dns:
+                        - 172.23.0.10
+                container_name: kong-server
+                environment:
+                        KONG_DATABASE: 'postgres'
+                        KONG_PG_HOST: 'kong-database'
+                        KONG_PG_PORT: '5432'
+                        KONG_PG_USER: 'kong'
+                        KONG_PG_PASSWORD: 'kong'
+                        KONG_PG_DATABASE: 'kong'
+                        KONG_PROXY_ACCESS_LOG: '/dev/stdout'
+                        KONG_ADMIN_ACCESS_LOG: '/dev/stdout'
+                        KONG_LOG_LEVEL: 'debug'
+                        KONG_PROXY_ERROR_LOG: '/dev/stderr'
+                        KONG_ADMIN_ERROR_LOG: '/dev/stderr'
+                        KONG_ADMIN_LISTEN: '0.0.0.0:8001,0.0.0.0:8444 ssl'
+                        KONG_NGINX_PROXY_GZIP_MIN_LENGTH: '1k'
+                        KONG_NGINX_PROXY_GZIP: 'on'
+                        KONG_NGINX_PROXY_GZIP_TYPES: 'text/html application/json text/plain'
+                ports:
+                        - "443:8443"
+                        - "80:8000"
+                        - "18001:8001"
+                depends_on:
+                        - kong-database-sync
+                links:
+                        - kong-database
+
+        kong-konga:
+                image: docker-mirrors-nexus.ckt.cn/pantsel/konga:0.14.9
+                restart: always
+                container_name: kong-konga
+                environment:
+                        NODE_ENV: 'production'
+                        TOKEN_SECRET: 'abc'
+                        STORAGE_PATH: '/data'
+                        NO_AUTH: 'true'
+                ports:
+                        - "21337:1337"
+                depends_on:
+                        - kong-server
+                links:
+                        - kong-server
