@@ -20,6 +20,7 @@ import org.springframework.util.StringUtils;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @desc redis 分布式限流
@@ -56,12 +57,21 @@ public class RateLimiterHandler {
     public Object around(ProceedingJoinPoint joinPoint, RateLimiter rateLimiter) throws Throwable {
         long limit = rateLimiter.limit();
         long expire = rateLimiter.expire();
+        boolean dynamic = rateLimiter.dynamic();
+        String totalKey = rateLimiterService.getTotalKey(joinPoint, rateLimiter);
+
+
+        if(dynamic){ // 如果是动态配置的话，从redis hash 中取
+            Object limitObj = redisTemplate.opsForHash().get(rateLimiter.dynamicLimitKey(), totalKey);
+            if(Objects.nonNull(limitObj)){
+                limit = Integer.parseInt(limitObj.toString());
+            }
+        }
 
         if(limit <= 0 || expire < 0){ // 参数异常
             logger.error("RateLimiterHandler --------> 触发限流： limit:{} ,expire:{}",limit,expire);
             return joinPoint.proceed();
         }
-        String totalKey = rateLimiterService.getTotalKey(joinPoint, rateLimiter);
 
         List<String> keyList = new ArrayList<>();
         keyList.add(totalKey);

@@ -30,6 +30,16 @@ public @interface RateLimiter {
     long limit() default 0;
 
     /**
+     * limit 值是否是动态的，默认从：redis中获取：hash  rate_limiter_dynamic: key :value
+     */
+    boolean dynamic() default false;
+
+    /**
+     * limit 动态时,获取 limit 的 key 的值
+     */
+    String dynamicLimitKey() default "rate_limiter_dynamic";
+
+    /**
      * 过期时间,单位秒
      */
     long expire() default 1;

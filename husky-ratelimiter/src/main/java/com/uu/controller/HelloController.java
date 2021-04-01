@@ -22,7 +22,7 @@ public class HelloController {
 
 
     @GetMapping("hello2.do")
-    @RateLimiter(prefixKey = "hello2", limit = 2, expire = 100,keys = {"#api","#userId"},fallbackFunction = "helloFallbackFunction")
+    @RateLimiter(prefixKey = "hello2", limit = 2, expire = 100,keys = {"#api","#userId"},fallbackFunction = "helloFallbackFunction",dynamic = true)
     public String hello2(String api,Integer userId) throws Exception {
         return "正常相应";
     }

@@ -10,6 +10,7 @@ import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
 import java.lang.reflect.Method;
@@ -35,8 +36,10 @@ public class RateLimiterParamProvider{
         }
         Method method = getMethod(joinPoint);
         List<String> definitionKeys = getElDefinitionKey(rateLimit.keys(), method, joinPoint.getArgs());
-        List<String> keyList = new ArrayList<>(definitionKeys);
-        return String.join("-", keyList) + "-";
+        if(CollectionUtils.isEmpty(definitionKeys)){
+            return "";
+        }
+        return "-" + String.join("-", definitionKeys);
     }
 
     private Method getMethod(JoinPoint joinPoint) {
