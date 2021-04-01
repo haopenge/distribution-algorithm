@@ -1,16 +1,23 @@
-> 此项目为java 知识基础日常汇总，包含demo 代码，方便查看调用
+> 此项目为java 知识基础日常汇总，方便查看调用
    
 # 项目结构
    ```text
-   distribution-algorithm 
-       |-husky-spi                      java原生spi机制测试
-       |-husky-algorithm                java数据结构与算法
-       |-husky-distribution             java分布式、多线程、高并发
-          |-distribution
-             |-   线程基础  
-             |-   SpringBootStart
-             |-   线程池
-             |-   JDK并发包
-             |-   分布式锁
-             |-   distribution
+   interview
+        |- husky-algorithm
+            
+        |- docker               常用docker-compose 方便做测试
+        |- husky-base
+            |-  java并发工具JUC
+            |-  线程基础
+            |-  线程池              
+        |- husky-dubbo          dubbo调用服务，分布式限流alibaba-sentinel 测试
+            |- husky-spi   
+        |- husky-design-mode    设计模式
+        |- husky-kafka          kafka调用测试
+        |- husky-mybatis        mybatis 测试，多数据源配置
+        |- husky-netty          netty 学习笔记
+        |- husky-ratelimiter    基于redis的分布式限流
+        |- husky-rocketmq       rocketMq 消息中间价
+        |- husky-spring         spring 加载、生命周期学习demo
+            
    ```
