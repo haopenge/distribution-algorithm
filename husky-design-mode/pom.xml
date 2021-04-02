@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.husky</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>husky-design-mode</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>husky-design-mode</name>
 	<description>设计模式学习</description>
