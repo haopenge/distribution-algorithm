@@ -1,7 +1,5 @@
 package com.uu.pipline.test;
 
-import com.uu.pipline.BusinessPipeline;
-import com.uu.pipline.DefaultBusinessPipeline;
 import org.junit.Test;
 
 /**
@@ -13,6 +11,6 @@ public class OnlyTest {
 
     @Test
     public void test1(){
-        new DefaultBusinessPipeline();
+       // new DefaultBusinessPipeline();
     }
 }

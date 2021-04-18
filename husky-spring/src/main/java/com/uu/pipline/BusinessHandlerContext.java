@@ -5,6 +5,9 @@ package com.uu.pipline;
  * @author liuph
  * @date 2021/04/02 15:07
  */
-public interface BusinessHandlerContext {
+public interface BusinessHandlerContext<T> {
 
+    T getResult();
+
+    void setResult(T t);
 }

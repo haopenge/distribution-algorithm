@@ -1,6 +1,5 @@
 package com.uu.pipline;
 
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -15,7 +14,7 @@ public class DefaultBusinessPipeline implements BusinessPipeline {
 
     private BusinessHandlerNode tail;
 
-    private BusinessHandlerContext context = null;
+    private BusinessHandlerContext context;
 
 
     public DefaultBusinessPipeline(BusinessHandlerContext context) {
@@ -65,13 +64,4 @@ public class DefaultBusinessPipeline implements BusinessPipeline {
         tail = temp;
     }
 
-    /**
-     * 获取结果
-     */
-    @Override
-    public Map getResult() {
-
-
-        return null;
-    }
 }

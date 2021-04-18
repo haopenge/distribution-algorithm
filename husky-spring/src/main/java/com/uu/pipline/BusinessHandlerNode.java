@@ -12,7 +12,7 @@ public class BusinessHandlerNode {
     private BusinessHandlerNode next = null;
 
     public void exec(BusinessHandlerContext context){
-        boolean success = this.handler.handler(context);
+        boolean success = handler.handler(context);
         if(next != null){
             if(success){
                 next.exec(context);
