@@ -4,17 +4,56 @@
 <mapper namespace="com.uu.mybatis.official.UserDao">
 
     <select id="selectByPrimaryKey" resultType="com.uu.mybatis.official.User">
-        select
-            id,phone,remark
+        select id,phone,remark,create_time,update_time
         from user
     </select>
     <select id="find" resultType="com.uu.mybatis.official.User">
-        select  id,phone,remark
+        select  id,phone,remark,create_time,update_time
         from user
     </select>
     <select id="findById" resultType="com.uu.mybatis.official.User">
-        select  id,phone,remark
+        select  id,phone,remark,create_time,update_time
         from user
         where id = #{id}
     </select>
+
+    <insert id="insert" >
+        insert into user
+        (phone,remark
+        <if test="createTime != null">
+            ,create_time
+        </if>
+       <if test="updateTime != null">
+           ,update_time
+       </if>
+        )
+        values
+        (#{phone},#{remark}
+        <if test="createTime != null">
+            ,#{createTime}
+        </if>
+        <if test="updateTime != null">
+            ,#{updateTime}
+        </if>
+         )
+    </insert>
+
+    <update id="update">
+        update user
+        <set>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+            where id = #{id}
+    </update>
 </mapper>

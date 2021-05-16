@@ -21,11 +21,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `phone` int(11) DEFAULT NULL,
-  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `user` (
+                        `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+                        `create_time` datetime NOT NULL COMMENT '创建时间',
+                        `update_time` datetime NOT NULL COMMENT '更新时间',
+                        `phone` varchar(11) NOT NULL DEFAULT '' COMMENT '手机号',
+                        `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '标记',
+                        PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS = 1;

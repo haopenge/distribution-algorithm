@@ -10,4 +10,9 @@ public interface UserDao {
     List<User> find();
 
     User findById(Integer id);
+
+    Integer insert(User user);
+
+    Integer update(User user);
+
 }
