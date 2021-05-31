@@ -1,7 +1,7 @@
 package com.uu;
 
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.aspectj.lang.annotation.Before;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
@@ -20,7 +20,7 @@ class HuskyRatelimiterApplicationTests {
 
 	private DefaultRedisScript<Long> getRedisScript;
 
-	@Before
+	@Before("")
 	public void init() {
 		getRedisScript = new DefaultRedisScript<>();
 		getRedisScript.setResultType(Long.class);

@@ -1,6 +1,5 @@
 package com.uu.core;
 
-import com.uu.annotation.RateLimiter;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.expression.MethodBasedEvaluationContext;
@@ -30,12 +29,12 @@ public class RateLimiterParamProvider{
     /**
      * 获取 自定义 key 内容
      */
-    public String getCustomerKey(JoinPoint joinPoint, RateLimiter rateLimit) {
-        if(rateLimit.keys().length == 0){
+    public String getCustomerKey(JoinPoint joinPoint, String[] keys) {
+        if(keys.length == 0){
             return "";
         }
         Method method = getMethod(joinPoint);
-        List<String> definitionKeys = getElDefinitionKey(rateLimit.keys(), method, joinPoint.getArgs());
+        List<String> definitionKeys = getElDefinitionKey(keys, method, joinPoint.getArgs());
         if(CollectionUtils.isEmpty(definitionKeys)){
             return "";
         }

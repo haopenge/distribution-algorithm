@@ -22,7 +22,7 @@ public class RateLimiterService {
 
     public String getTotalKey(JoinPoint joinPoint, RateLimiter rateLimit) {
         // 获取自定义字符串
-        String businessKeyName = paramProvider.getCustomerKey(joinPoint, rateLimit);
+        String businessKeyName = paramProvider.getCustomerKey(joinPoint, rateLimit.keys());
         return rateLimit.prefixKey() + businessKeyName;
     }
 
